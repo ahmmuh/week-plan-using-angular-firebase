@@ -1,0 +1,14 @@
+<app-menu></app-menu>
+<div class="container">
+    <form>
+        <div class="form-group">
+          <label><strong>Lägg till medarbetare:</strong></label>
+          <input type="text" class="form-control" [(ngModel)]="employee.firstName"  name="firstName">
+        </div>
+        <input type="submit"  value="Submit" class="btn btn-primary form-control" (click)="onAdd()">
+    </form>
+  
+    <ul class="list-group">
+        <li  class="list-group-item" *ngFor="let employee of employees"> <i class="fas fa-user-circle"></i> {{employee.firstName}} </li>
+    </ul> 
+    </div>

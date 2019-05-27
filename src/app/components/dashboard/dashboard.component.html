@@ -1,0 +1,51 @@
+<div class="container">
+<div class="row">
+  <h2 class="smile_icon">Välkommen till {{dashBoard}} ! <i class="fas fa-smile"></i> </h2>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+       <i [routerLink]="['/employees']" class="fas fa-users"></i>
+       <span class="badge">Våra medarbetare</span>
+
+      </div>
+      <div class="col-sm">
+          <i [routerLink]="['/add-item']" class="fas fa-plus-square"></i><span class="badge"> Lägg till ett nytt projekt
+            </span>
+      </div>
+    
+      <div class="col-sm">
+          <i  class="fas fa-share-alt-square"></i>
+          <span class="badge">Tilldelade projekt</span>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <i class="fab fa-meetup"></i>
+            <span class="badge">Boka ett möte</span>
+          </div>
+        <div class="col-sm">
+            <i class="fas fa-home" [routerLink]="['/home']"></i>
+            <span class="badge">Se alla menyer</span>
+
+          </div>
+        <div class="col-sm">
+            <i [routerLink]="['/note']" class="fas fa-sticky-note"></i>
+            <span class="badge">Notera här ...</span>
+          </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm">
+            <i [routerLink]="['/projects']" class="fas fa-project-diagram"></i>
+        <span class="badge">Alla Projekt</span>
+
+        </div>
+      </div>
+      <div class="footer">
+          <p>Xlent 2019</p>
+        </div>
+  </div>
+

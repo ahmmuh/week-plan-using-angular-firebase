@@ -1,0 +1,25 @@
+<app-menu></app-menu>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+        <div class="form-group">
+            <textarea class="form-control"  rows="5" id="comment"
+            [(ngModel)]="note.name"  name="name"></textarea>
+            <button class="btn btn-warning" (click)="addNote()">Add note</button>
+   </div>
+    </div>
+
+  </div>
+  <table class="table table-bordered">
+    <tr>
+      <td></td>
+    </tr>
+  </table>
+
+  <div class="container">
+    <div class="row" >
+      <div class="col-sm" *ngFor="let note of notes">{{note.name}}</div>
+    </div>
+  </div>
+</div>

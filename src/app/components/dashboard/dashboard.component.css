@@ -1,0 +1,29 @@
+.row{
+    top: 10px;
+    padding-bottom: 35px;
+}
+h2{
+    color: rgb(204, 185, 14);
+}
+.col-sm{
+    border: 1px solid #222;
+}
+
+.col-sm i{
+   font-size: 160px;
+   color: rgb(204, 185, 14);
+
+}
+.col-sm i:hover{
+    color: #222;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(204, 185, 14);
+    color: #222;
+    text-align: center;
+ }

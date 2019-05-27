@@ -1,0 +1,109 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="card">
+    <div class="card-header">All Projects</div>
+  </div>
+<table class="table table-hover" *ngIf="projects?.length > 0; else noProjects">
+  <thead>
+    <tr>
+      <th>Project Name</th>
+      <th>Start Date</th>
+      <th>End Date</th>
+      <th>Scope</th>
+      <th>Tilldela</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+    </tr>
+  </thead>
+  <tr  *ngFor="let project of projects">
+    <td>
+      {{project.projectName}}</td>
+    <td>{{project.startDate}}</td>
+    <td>{{project.endDate}}</td>
+    <td>{{project.scope}}</td>
+    <td><i (click)="shareButton($event, project)" class="fas fa-share"></i></td>
+
+    <td><i (click)="editProject($event, project)" class="fas fa-edit"></i>
+    <td><i *ngIf="editState && projectEdit.id == project.id" (click)="clearState()" class="fas fa-bars"></i>
+
+    <div *ngIf="editState && projectEdit.id == project.id">
+    
+       <div class="update_form_keeper">
+           <form>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="project.projectName"  name="projectName">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="project.startDate" name="startDate" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="project.endDate" name="endDate" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" [(ngModel)]="project.scope" name="scope"  class="form-control">
+      </div>
+      
+    </form>
+    <input type="submit" value="Update" class="btn btn-warning" (click)="updateProject(project)">
+
+</div>
+    </div>
+
+    <!-- förmulär för -> Tilldela ett projekt -->
+   <div *ngIf="shareBtn && shareProject.id == project.id">
+      <i *ngIf="shareBtn && shareProject.id == project.id" (click)="clearState2()" class="fas fa-compress-arrows-alt"></i>
+    
+          <form>
+     <div class="form-group">
+       <input type="text" class="form-control" [(ngModel)]="project.projectName"  name="projectName">
+     </div>
+     <div class="form-group">
+       <input type="text" [(ngModel)]="project.startDate" name="startDate" class="form-control">
+     </div>
+     <div class="form-group">
+       <input type="text" [(ngModel)]="project.endDate" name="endDate" class="form-control">
+     </div>
+     <div class="form-group">
+       <input type="text" [(ngModel)]="project.scope" name="scope"  class="form-control">
+     </div>
+    
+     <div class="form-group">
+      <select [(ngModel)]="project.firstName" name="firstName" >
+        <option *ngFor="let employee of employees">
+            {{employee.firstName}}
+        </option>
+      </select>
+    </div>
+   
+   </form>
+   <input type="submit"  class="btn btn-success" (click)="onShare()">
+
+   </div>
+    <i (click)="deleteProject($event, project)" class="fas fa-trash"></i>
+
+    </td>    
+  </tr>
+</table>
+
+<button class="btn btn-primary"><i [routerLink]="['/']" class="fas fa-chevron-left"></i></button>
+
+<table class="table table-hover">
+  <tr *ngFor="let shared of _Projects">
+    <td>{{shared.firstName}}</td>
+    <td>{{shared.startDate}}</td>
+    <td>{{shared.endDate}}</td>
+    <td>{{shared.scope}}</td>
+    <td>{{shared.projectName}}</td>
+    
+  </tr>
+</table>
+</div>
+
+
+<ng-template #noProjects>
+<hr>
+<h5>There are no project yet !</h5>
+</ng-template>
+
+
